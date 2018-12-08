@@ -1,0 +1,25 @@
+问题1
+InvalidArgumentError (see above for traceback): Cannot assign a device for operation ‘Variable’: Could not satisfy explicit device specification ‘/device:GPU:0’ because no supported kernel for GPU devices is available.
+添加 config = tf.ConfigProto(allow_soft_placement=True) 
+config.gpu_options.allow_growth = True
+sess = tf.Session(config=config)
+主要是在（）添加config=config
+
+路径 cd C:\Zero\Python\Style Transfer
+
+网址 https://github.com/cysmith/neural-style-tf
+
+下载 http://www.vlfeat.org/matconvnet/models/imagenet-vgg-verydeep-19.mat
+
+图像处理
+python neural_style.py --content_img ./input4.jpg --style_imgs ./style4.jpg --max_iterations 100
+
+视频处理
+python neural_style.py --video_input_dir video_input/ --video_output_dir video_output/ --style_imgs ./style1.jpg --max_iterations 100
+
+时间
+314.3359830379486 iterations 100 style 300*187
+303.7384080886841 iterations 100 style 500*312 更清晰一些
+
+
+
